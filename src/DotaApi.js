@@ -4,7 +4,7 @@ const util = require('./utilities');
 class DotaApi {
   /**
    * Provide an optional opendota api key. Provided here -> {@link https://www.opendota.com/api-keys}
-   * @param {string} apiKey
+   * @param {string=} apiKey
    */
   constructor(apiKey = null) {
     this.apiKey = apiKey;
