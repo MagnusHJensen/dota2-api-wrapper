@@ -2,10 +2,11 @@
   "name": "dota2-api-wrapper",
   "version": "1.0.0",
   "description": "API Wrapper for the Dota2 Open API",
-  "main": "./src/index.js",
+  "main": "./src/DotaApi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docs": "jsdoc -c ./node_modules/ink-docstrap/template/jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md ./src"
   },
   "keywords": [
     "dota2",
@@ -22,6 +23,8 @@
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.6.5",
     "prettier": "^2.0.5"
   }
 }
