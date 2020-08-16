@@ -18,4 +18,4 @@ Every request you make to the API will return a promise, which you need to take 
 
 # Documentation
 
-Documentation can be found [here](https://docs.magnusjensen.dk/dota-wrapper/);
+Documentation can be found [here](https://docs.magnusjensen.dk/dota-wrapper/DotaApi);
