@@ -3,7 +3,7 @@ const util = require('./utilities');
 
 class DotaApi {
   /**
-   * Provide an optional opendota api key. Provided here -> https://www.opendota.com/api-keys
+   * Provide an optional opendota api key. Provided here -> {@link https://www.opendota.com/api-keys}
    * @param {string} apiKey
    */
   constructor(apiKey = null) {
@@ -596,7 +596,7 @@ class DotaApi {
 
   /**
    * Get static game constants.
-   * See the available constants (here)[https://github.com/odota/dotaconstants/tree/master/build]
+   * See the available constants [here] {@link https://github.com/odota/dotaconstants/tree/master/build}
    * @param {string=} resource If left out, then returns array of available resources.
    * @returns {Array|Object}
    */
