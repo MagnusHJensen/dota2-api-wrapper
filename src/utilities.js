@@ -7,17 +7,16 @@ function handleResponse(res) {
 
   res.json().then((result) => {
     if (result.error) {
-        switch(result.error) {
-            case 'Not Found': {
-                throw 'Invalid arguments. \n Could not find requested resources.';
-            }
-            default: {
-              throw res.json();
-            }
+      switch (result.error) {
+        case 'Not Found': {
+          throw 'Invalid arguments. \n Could not find requested resources.';
         }
+        default: {
+          throw res.json();
+        }
+      }
     }
-  })
-  
+  });
 }
 
 const query = (parameters) =>
