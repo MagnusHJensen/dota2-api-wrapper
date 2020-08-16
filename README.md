@@ -7,6 +7,7 @@ If you want more than 50.000 free calls every motnh and 60/requests per minute, 
 
 From terminal:  
 `npm install --save dota2-api-wrapper`  
+<br>
 In source file:  
 ```js
 const dotaWebApi = require('dota2-api-wrapper');
