@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-underscore-dangle */
 const fetch = require('node-fetch');
 const util = require('./utilities');
 
@@ -19,7 +21,6 @@ class DotaApi {
         url += `?api_key=${this.apiKey}`;
       }
     }
-    console.log(url);
     return fetch(url);
   }
 
@@ -29,7 +30,7 @@ class DotaApi {
    * @returns {Object}
    */
   getMatchDetails(matchId) {
-    return this._fetch(this.API_URL + `matches/${matchId}`)
+    return this._fetch(`${this.API_URL}matches/${matchId}`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -42,7 +43,7 @@ class DotaApi {
    * @returns {Object}
    */
   getPlayerData(account_id) {
-    return this._fetch(this.API_URL + `players/${account_id}`)
+    return this._fetch(`${this.API_URL}players/${account_id}`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -55,10 +56,9 @@ class DotaApi {
    */
   getWLCount(account_id, limit_options = {}) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/wl${
-          limit_options ? util.query(limit_options) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/wl${
+        limit_options ? util.query(limit_options) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -70,7 +70,7 @@ class DotaApi {
    * @returns {Array}
    */
   getRecentMatches(account_id) {
-    return this._fetch(this.API_URL + `players/${account_id}/recentMatches`)
+    return this._fetch(`${this.API_URL}players/${account_id}/recentMatches`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -83,10 +83,9 @@ class DotaApi {
    */
   getMatches(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/matches${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/matches${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -100,10 +99,9 @@ class DotaApi {
    */
   getHeroesStats(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/heroes${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/heroes${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -117,10 +115,9 @@ class DotaApi {
    */
   getPlayersPlayedWith(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/peers${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/peers${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -134,10 +131,9 @@ class DotaApi {
    */
   getProPlayersPlayedWith(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/pros${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/pros${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -151,10 +147,9 @@ class DotaApi {
    */
   getTotalsInStats(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/totals${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/totals${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -168,10 +163,9 @@ class DotaApi {
    */
   getCountsInCategories(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/counts${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/counts${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -186,10 +180,9 @@ class DotaApi {
    */
   getStatHistogram(account_id, field, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/histograms/${field}${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/histograms/${field}${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -203,10 +196,9 @@ class DotaApi {
    */
   getWardsPlaced(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/wardmap${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/wardmap${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -220,10 +212,9 @@ class DotaApi {
    */
   getWordCounts(account_id, searchOptions = null) {
     return this._fetch(
-      this.API_URL +
-        `players/${account_id}/wordcloud${
-          searchOptions ? util.query(searchOptions) : ''
-        }`,
+      `${this.API_URL}players/${account_id}/wordcloud${
+        searchOptions ? util.query(searchOptions) : ''
+      }`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -235,7 +226,7 @@ class DotaApi {
    * @returns {Array}
    */
   getRatingHistory(account_id) {
-    return this._fetch(this.API_URL + `players/${account_id}/ratings`)
+    return this._fetch(`${this.API_URL}players/${account_id}/ratings`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -246,7 +237,7 @@ class DotaApi {
    * @returns {Array}
    */
   getHeroRankings(account_id) {
-    return this._fetch(this.API_URL + `players/${account_id}/rankings`)
+    return this._fetch(`${this.API_URL}players/${account_id}/rankings`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -258,7 +249,7 @@ class DotaApi {
    * @returns {Array}
    */
   getProPlayers() {
-    return this._fetch(this.API_URL + `proPlayers`)
+    return this._fetch(`${this.API_URL}proPlayers`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -296,7 +287,7 @@ class DotaApi {
    * @returns {Array}
    */
   getParsedMatches() {
-    return this._fetch(this.API_URL + `parsedMatches`)
+    return this._fetch(`${this.API_URL}parsedMatches`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -325,7 +316,7 @@ class DotaApi {
    * @returns {Object}
    */
   getMetadata() {
-    return this._fetch(this.API_URL + `metadata`)
+    return this._fetch(`${this.API_URL}metadata`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -335,7 +326,7 @@ class DotaApi {
    * @returns {Object}
    */
   getDistributions() {
-    return this._fetch(this.API_URL + `distributions`)
+    return this._fetch(`${this.API_URL}distributions`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -350,7 +341,7 @@ class DotaApi {
       name,
     };
     return this._fetch(
-      this.API_URL + `search${searchOptions ? util.query(searchOptions) : ''}`,
+      `${this.API_URL}search${searchOptions ? util.query(searchOptions) : ''}`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -395,7 +386,7 @@ class DotaApi {
    * @returns {Object}
    */
   getServiceStatus() {
-    return this._fetch(this.API_URL + `status`)
+    return this._fetch(`${this.API_URL}status`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -405,7 +396,7 @@ class DotaApi {
    * @returns {Object}
    */
   getServiceHealth() {
-    return this._fetch(this.API_URL + `health`)
+    return this._fetch(`${this.API_URL}health`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -417,7 +408,7 @@ class DotaApi {
    * @returns {Array}
    */
   getAllHeroes() {
-    return this._fetch(this.API_URL + `heroes`)
+    return this._fetch(`${this.API_URL}heroes`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -428,7 +419,7 @@ class DotaApi {
    * @returns {Array}
    */
   getRecentMatchesWithHero(hero_id) {
-    return this._fetch(this.API_URL + `heroes/${hero_id}/matches`)
+    return this._fetch(`${this.API_URL}heroes/${hero_id}/matches`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -439,7 +430,7 @@ class DotaApi {
    * @returns {Array}
    */
   getMatchupsWithHero(hero_id) {
-    return this._fetch(this.API_URL + `heroes/${hero_id}/matchups`)
+    return this._fetch(`${this.API_URL}heroes/${hero_id}/matchups`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -450,7 +441,7 @@ class DotaApi {
    * @returns {Array}
    */
   getDurationsWithHero(hero_id) {
-    return this._fetch(this.API_URL + `heroes/${hero_id}/duration`)
+    return this._fetch(`${this.API_URL}heroes/${hero_id}/duration`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -461,7 +452,7 @@ class DotaApi {
    * @returns {Array}
    */
   getPlayersByHeroPlayed(hero_id) {
-    return this._fetch(this.API_URL + `heroes/${hero_id}/matches`)
+    return this._fetch(`${this.API_URL}heroes/${hero_id}/matches`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -473,7 +464,7 @@ class DotaApi {
    * @returns {Object}
    */
   getItemPopularityForHero(hero_id) {
-    return this._fetch(this.API_URL + `heroes/${hero_id}/itemPopularity`)
+    return this._fetch(`${this.API_URL}heroes/${hero_id}/itemPopularity`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -483,7 +474,7 @@ class DotaApi {
    * @returns {Array} An array of heroes, and their overall stats.
    */
   getAllHeroesStats() {
-    return this._fetch(this.API_URL + `heroStats`)
+    return this._fetch(`${this.API_URL}heroStats`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -493,7 +484,7 @@ class DotaApi {
    * @returns {Array}
    */
   getLeagueData() {
-    return this._fetch(this.API_URL + `leagues`)
+    return this._fetch(`${this.API_URL}leagues`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -503,7 +494,7 @@ class DotaApi {
    * @returns {Array}
    */
   getAllTeams() {
-    return this._fetch(this.API_URL + `teams`)
+    return this._fetch(`${this.API_URL}teams`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -514,7 +505,7 @@ class DotaApi {
    * @returns {Object}
    */
   getTeam(team_id) {
-    return this._fetch(this.API_URL + `teams/${team_id}`)
+    return this._fetch(`${this.API_URL}teams/${team_id}`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -525,7 +516,7 @@ class DotaApi {
    * @returns {Array}
    */
   getTeamMatches(team_id) {
-    return this._fetch(this.API_URL + `teams/${team_id}/matches`)
+    return this._fetch(`${this.API_URL}teams/${team_id}/matches`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -536,7 +527,7 @@ class DotaApi {
    * @returns {Array}
    */
   getTeamMatches(team_id) {
-    return this._fetch(this.API_URL + `teams/${team_id}/players`)
+    return this._fetch(`${this.API_URL}teams/${team_id}/players`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -547,7 +538,7 @@ class DotaApi {
    * @returns {Array}
    */
   getTeamMatches(team_id) {
-    return this._fetch(this.API_URL + `teams/${team_id}/heroes`)
+    return this._fetch(`${this.API_URL}teams/${team_id}/heroes`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -561,7 +552,7 @@ class DotaApi {
     const params = {
       match_id,
     };
-    return this._fetch(this.API_URL + `replays${util.query(params)}`)
+    return this._fetch(`${this.API_URL}replays${util.query(params)}`)
       .then((res) => util.handleResponse(res))
       .then((json) => {
         json.forEach((val) => {
@@ -578,7 +569,7 @@ class DotaApi {
    * @returns {Array}
    */
   getRecordsOfStat(stat) {
-    return this._fetch(this.API_URL + `records/${stat}`)
+    return this._fetch(`${this.API_URL}records/${stat}`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -588,7 +579,7 @@ class DotaApi {
    * @returns {Array}
    */
   getLiveGames() {
-    return this._fetch(this.API_URL + `live`)
+    return this._fetch(`${this.API_URL}live`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -606,7 +597,7 @@ class DotaApi {
       hero_id,
     };
     return this._fetch(
-      this.API_URL + `scenarios/itemTimings${util.query(params)}`,
+      `${this.API_URL}scenarios/itemTimings${util.query(params)}`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -625,7 +616,7 @@ class DotaApi {
       hero_id,
     };
     return this._fetch(
-      this.API_URL + `scenarios/laneRoles${util.query(params)}`,
+      `${this.API_URL}scenarios/laneRoles${util.query(params)}`,
     )
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
@@ -641,7 +632,7 @@ class DotaApi {
     const params = {
       scenario,
     };
-    return this._fetch(this.API_URL + `scenarios/misc${util.query(params)}`)
+    return this._fetch(`${this.API_URL}scenarios/misc${util.query(params)}`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -651,7 +642,7 @@ class DotaApi {
    * @returns {Array}
    */
   getDBSchema() {
-    return this._fetch(this.API_URL + `schema`)
+    return this._fetch(`${this.API_URL}schema`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
@@ -663,7 +654,7 @@ class DotaApi {
    * @returns {Array|Object}
    */
   getConstants(resource) {
-    return this._fetch(this.API_URL + `constants/${resource}`)
+    return this._fetch(`${this.API_URL}constants/${resource}`)
       .then((res) => util.handleResponse(res))
       .catch((error) => error);
   }
